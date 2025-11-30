@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: ./IoT_Manager_Nodejs
+      dockerfile: Dockerfile
+    image: iot-manager-node:latest
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./IoT_Manager_Nodejs/.env
+    restart: always
+
+  frontend:
+    build:
+      context: ./IoT_Manager_React
+      dockerfile: Dockerfile
+    image: iot-manager-react:latest
+    ports:
+      - "3000:80"
+    env_file:
+      - ./IoT_Manager_React/.env
+    restart: always

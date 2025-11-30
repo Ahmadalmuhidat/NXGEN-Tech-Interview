@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Devices {
+  id          Int          @id @default(autoincrement())
+  name        String
+  created_at  DateTime     @default(now())
+  timeSeries  TimeSeries[]
+}
+
+model TimeSeries {
+  id        Int      @id @default(autoincrement())
+  timestamp DateTime
+  value     Float
+  device    Devices   @relation(fields: [deviceId], references: [id])
+  deviceId  Int
+}
