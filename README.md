@@ -51,10 +51,10 @@ In this project, I also learned several new tools and technologies, including Je
 DATABASE_URL=mysql://usernane:password@host.docker.internal:3306/tech_interview_db
 
 # use this for RabbitMQ connection when running outside Docker
-# RABBITMQ_URL="amqp://guest:guest@localhost:5672/"
+# RABBITMQ_URL=amqp://guest:guest@localhost:5672/
 
 # use this for RabbitMQ connection when running inside Docker
-RABBITMQ_URL=amqp://host.docker.internal:5672
+RABBITMQ_URL=amqp://guest:guest@host.docker.internal:5672/
 
 # RabbitMQ queue names
 RABBITMQ_DATA_QUEUE=IOT_Data_Queue
