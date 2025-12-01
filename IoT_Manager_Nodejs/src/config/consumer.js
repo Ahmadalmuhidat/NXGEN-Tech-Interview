@@ -2,7 +2,7 @@ const { getChannel } = require("../services/rabbitmq");
 const prisma = require("./prismaClient");
 
 async function startConsumer() {
-  const channel = await getChannel();
+  const channel = await getChannel(); // Get RabbitMQ channel
 
   channel.consume(process.env.RABBITMQ_DATA_QUEUE, async (msg) => {
     const data = JSON.parse(msg.content.toString());

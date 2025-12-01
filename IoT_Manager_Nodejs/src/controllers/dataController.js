@@ -33,6 +33,8 @@ exports.getData = async (req, res) => {
   const interval = setInterval(async () => {
     try {
       const BUFFER_MS = 1000; // 1 second buffer
+      // Quick explanation: I used a time buffer to make sure we don’t miss any data
+      // since it is being sent through RabbitMQ before it reaches the database.
 
       // Fetch new data entries since lastTimestamp minus buffer
       const dataEntries = await prisma.TimeSeries.findMany({

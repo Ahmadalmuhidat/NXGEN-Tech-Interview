@@ -12,7 +12,12 @@ async function connectRabbit() {
   channel = await connection.createChannel();
 
   // Ensure the queue exists
-  await channel.assertQueue(process.env.RABBITMQ_DATA_QUEUE, { durable: true });
+  await channel.assertQueue(
+    process.env.RABBITMQ_DATA_QUEUE,
+    {
+      durable: true
+    }
+  );
   return channel;
 }
 
