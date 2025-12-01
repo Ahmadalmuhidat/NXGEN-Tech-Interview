@@ -49,18 +49,6 @@ export default function LoadingSpinner({
   return spinner;
 }
 
-
-export function PageLoading({ text = 'Loading page...' }) {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-primary-100 flex items-center justify-center">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
-        <LoadingSpinner size="large" text={text} />
-      </div>
-    </div>
-  );
-}
-
-
 export function ContentLoading({ text = 'Loading...', className = '' }) {
   return (
     <div className={`flex items-center justify-center py-12 ${className}`}>
@@ -69,8 +57,7 @@ export function ContentLoading({ text = 'Loading...', className = '' }) {
   );
 }
 
-
-export function SkeletonCard({ className = '' }) {
+function SkeletonCard({ className = '' }) {
   return (
     <div className={`bg-white rounded-xl shadow-card p-6 border border-gray-100 animate-pulse ${className}`}>
       <div className="flex items-center space-x-3 mb-4">
@@ -97,4 +84,4 @@ export function SkeletonList({ count = 3, className = '' }) {
       ))}
     </div>
   );
-}
+};
