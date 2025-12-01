@@ -3,7 +3,8 @@ import AxiosClient from '../../config/axios';
 import { toast } from 'react-toastify';
 import { ContentLoading } from '../../shared/LoadingSpinner';
 import { GaugeChart } from './Components/Charts';
-import { InteractiveLineChart, InteractiveHistogram } from './Components/InteractiveCharts';
+import InteractiveLineChart from './Components/InteractiveLineChart';
+import InteractiveHistogram from './Components/InteractiveHistogram';
 import { DevicePieChart } from './Components/DevicePieChart';
 import { subscribeToDeviceData } from '../../config/serverSentEvents';
 

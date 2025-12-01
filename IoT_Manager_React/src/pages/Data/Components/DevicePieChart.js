@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { subscribeToDeviceStats } from '../../../config/serverSentEvents';
 
-export function DevicePieChart({ devices, deviceId, startTime }) {
+export function DevicePieChart({ devices }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [deviceStats, setDeviceStats] = useState([]);
   const [totalDataPoints, setTotalDataPoints] = useState(0);
