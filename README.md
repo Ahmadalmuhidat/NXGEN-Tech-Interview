@@ -44,11 +44,15 @@ In this project, I also learned several new tools and technologies, including Je
 ## .env files
 ### Backend
 ```bash
+# ===== Database =====
+
 # use when running the app outside a Docker container
-# DATABASE_URL=mysql://usernane:password@localhost:3306/tech_interview_db
+# DATABASE_URL=mysql://root:StrongPassword123!@localhost:3306/tech_interview_db
 
 # use when running the app inside a Docker container
-DATABASE_URL=mysql://usernane:password@host.docker.internal:3306/tech_interview_db
+DATABASE_URL=mysql://root:StrongPassword123!@host.docker.internal:3306/tech_interview_db
+
+# ===== RabbitMQ Configuration =====
 
 # use this for RabbitMQ connection when running outside Docker
 # RABBITMQ_URL=amqp://guest:guest@localhost:5672/
@@ -62,6 +66,5 @@ RABBITMQ_DATA_QUEUE=IOT_Data_Queue
 ### Frontend
 ```bash
 REACT_APP_BASE_URL=http://localhost:3001
-
 NODE_ENV=production
 ```

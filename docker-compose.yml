@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  api:
+  backend:
     build:
       context: ./IoT_Manager_Nodejs
       dockerfile: Dockerfile
@@ -10,6 +10,8 @@ services:
       - "3001:3001"
     env_file:
       - ./IoT_Manager_Nodejs/.env
+    networks:
+      - my_network
     restart: always
 
   frontend:
@@ -21,4 +23,38 @@ services:
       - "3000:80"
     env_file:
       - ./IoT_Manager_React/.env
+    networks:
+      - my_network
     restart: always
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - my_network
+    restart: always
+  
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: StrongPassword123
+      MYSQL_DATABASE: tech_interview_db
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - my_network
+    restart: always
+
+networks:
+  my_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.92.0/24"
+
+volumes:
+  mysql_data:
