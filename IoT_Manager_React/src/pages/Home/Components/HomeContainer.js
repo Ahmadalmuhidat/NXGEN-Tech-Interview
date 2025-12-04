@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AxiosClient from '../../../config/axios';
 import { toast } from 'react-toastify';
-import LoadingSpinner, { ContentLoading } from '../../../shared/LoadingSpinner';
+import { ContentLoading } from '../../../shared/LoadingSpinner';
 
 export default function HomeContainer() {
   const [mounted, setMounted] = useState(false);
